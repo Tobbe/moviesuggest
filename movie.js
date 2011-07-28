@@ -6,6 +6,19 @@ function Movie() {
 
 exports.Movie = Movie;
 
+Movie.prototype.prettyPrint = function() {
+	return this.name + '\n' +
+		'------------------------------------------------------------\n' + 
+		'    releaseName: ' + this.releaseName + '\n' + 
+		'          score: ' + this.score + '\n' + 
+		'          genre: ' + this.genre + '\n' + 
+		'         rating: ' + this.rating + '\n' + 
+		'          votes: ' + this.votes + '\n' + 
+		'           year: ' + this.year + '\n' + 
+		'         imdbId: ' + this.imdbId + '\n' + 
+		'      from imdb: ' + this.imdb + '\n';
+}
+
 Movie.prototype.genreContains = function(re) {
 	return this.genre.search(re) != -1;
 }

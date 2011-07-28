@@ -19,7 +19,9 @@ googleAuth.on('authDone', function(access_token, access_token_secret) {
 					todo--;
 					if (todo === 0) {
 						newList.sort(function(a, b) { return b.score - a.score; });
-						console.log(newList.slice(0, 10));
+						newList.slice(0, 10).forEach(function (m) {
+							console.log(m.prettyPrint());
+						});
 					}
 				});
 			});
