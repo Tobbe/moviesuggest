@@ -10,6 +10,10 @@ Movie.prototype.genreContains = function(re) {
 	return this.genre.search(re) != -1;
 }
 
+Movie.prototype.releaseContains = function(re) {
+	return this.releaseName.search(re) != -1;
+}
+
 Movie.prototype.setScore = function() {
 	this.score = Number(this.rating);
 	this.votes = Number(this.votes);
@@ -35,6 +39,10 @@ Movie.prototype.setScore = function() {
 		if (this.genreContains(/thriller/i)) {
 			this.score += 0.2;
 		}
+	}
+
+	if (this.releaseContains(/\.RC\.|\.PPV\.|\.PPVR[Ii][Pp][-\.]|\.[Xx]264[-\.]/)) {
+		this.score -= 1.2;
 	}
 
 	this.score = Math.round(this.score * 10) / 10;
