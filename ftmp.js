@@ -14,13 +14,16 @@ function makeMovieObject(item, callback) {
 		if (data) {
 			movie.name = data.Title;
 			movie.genre = data.Genre;
-			movie.votes = data.Votes;
 			movie.year = data.Year;
 			movie.imdbId = data.ID;
 			movie.imdb = true;
 
 			if (data.Rating != 'N/A') {
 				movie.rating = data.Rating;
+			}
+
+			if (data.Votes != 'N/A') {
+				movie.votes = data.Votes;
 			}
 		}
 
